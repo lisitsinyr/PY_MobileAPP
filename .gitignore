@@ -1,0 +1,22 @@
+### VS Code ###
+.vscode/
+.vs/
+
+### PyCharm ###
+.idea/
+__pycache__/
+
+### ФАЙЛЫ ###
+GIT_CONFIG*
+config*
+*.log
+
+### КАТАЛОГИ ###
+clickers/
+LOGS/
+LOG/
+RE/
+Replace if-else Statements/
+out/
+EXE/
+WORK/
