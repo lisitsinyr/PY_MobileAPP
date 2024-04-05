@@ -68,7 +68,7 @@ def RunProcessFile (aFileName: str, aPathWork: str):
                             names = None, usecols = None, dtype = None, nrows = None
                              )
     # print(APPs.index)
-    LULog.LoggerAPPS.log (LULog.TEXT, APPs.index)
+    LULog.LoggerAPPSAdd (LULog.TEXT, APPs.index)
     for row in APPs.itertuples():
         LFolderMobile = row[1]
         LLink = row[3]
@@ -81,18 +81,18 @@ def RunProcessFile (aFileName: str, aPathWork: str):
             sLFolderMobile = LUStrUtils.AddCharR ('.', LFolderMobile, 20)
             sLLink = LUStrUtils.AddCharR ('.', LLink, 50)
             sLFolderPC = LUStrUtils.AddCharR ('.', LFolderPC, 50)
-            LULog.LoggerAPPS.log (LULog.TEXT, sLFolderMobile+sLLink+sLFolderPC)
+            LULog.LoggerAPPSAdd (LULog.TEXT, sLFolderMobile+sLLink+sLFolderPC)
             LFolderPCwork = aPathWork+'/'+LFolderMobile+'/'+LFolderPC
             if not LUFile.DirectoryExists (LFolderPCwork):
                 # LUFile.ForceDirectories (LFolderPCwork)
                 s = f'Директория: {LFolderPCwork}'
-                LULog.LoggerAPPS.log (LULog.TEXT, s)
+                LULog.LoggerAPPSAdd (LULog.TEXT, s)
             #endif
         #endif
         if LType == 'ВИДЖЕТ':
             sLFolderMobile = LUStrUtils.AddCharR ('.', LFolderMobile, 20)
             sLLink = LUStrUtils.AddCharR ('.', LLink, 50)
-            LULog.LoggerAPPS.log (LULog.TEXT, sLFolderMobile+sLLink)
+            LULog.LoggerAPPSAdd (LULog.TEXT, sLFolderMobile+sLLink)
         #endif
 #endfunction
 
@@ -107,13 +107,13 @@ def main ():
     LArgPathWork = LArgParser.ArgParser.add_argument ('PathWork', type = str, default = '', help = 'PathWork')
     LArgPathWork.required = False
     Largs = LArgParser.ArgParser.parse_args ()
-    # LULog.LoggerAPPS.log (LULog.TEXT, Largs.__dict__)
+    # LULog.LoggerAPPSAdd (LULog.TEXT, Largs.__dict__)
     LFileName = Largs.FileName
     s = f'FileName = {LFileName}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LPathWork = Largs.PathWork
     s = f'PathWork = {LPathWork}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     if LPathWork == '':
         LPathWork = LUos.GetCurrentDir()
     #endif
@@ -122,12 +122,12 @@ def main ():
         RunProcessFile (LFileName, LPathWork)
         LResult = 0
     else:
-        LULog.LoggerAPPS.log (LULog.TEXT, 'No such file or directory')
+        LULog.LoggerAPPSAdd (LULog.TEXT, 'No such file or directory')
         LResult = 1
     #endif
 
     s = 'ExitProgram...'
-    LULog.LoggerAPPS.info (s)
+    LULog.LoggerAPPSAdd_info (s)
     sys.exit(LResult)
 #endfunction
 
