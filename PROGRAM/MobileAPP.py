@@ -101,6 +101,9 @@ def RunProcessFile (aFileName: str, aPathWork: str):
 #------------------------------------------
 def main ():
 #beginfunction
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
+                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
+
     LArgParser = LUParserARG.TArgParser (description = 'Параметры', prefix_chars = '-/')
     LArgFileName = LArgParser.ArgParser.add_argument ('FileName', type = str, default = '', help = 'FileName')
     LArgFileName.required = False
@@ -132,7 +135,7 @@ def main ():
 #endfunction
 
 #------------------------------------------
-# MODULE_________________from PyCharm
+# MODULE
 #------------------------------------------
 #beginmodule
 if __name__ == "__main__":
