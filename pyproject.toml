@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pattern-py"
+name = "MobileAPP"
 version = "0.1.0"
 description = ""
 authors = ["lisitsinyr <lisitsinyr@gmail.com>"]
