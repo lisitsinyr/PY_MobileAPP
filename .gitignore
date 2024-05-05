@@ -9,9 +9,6 @@
 # Исключить файл TODO в корневом каталоге, но не файл в subdir/TODO
 /TODO
 
-# Игнорировать все файлы в каталоге build/
-build/
-
 # Игнорировать файл doc/notes.txt, но не файл doc/server/arch.txt
 doc/*.txt
 
@@ -25,6 +22,9 @@ doc/**/*.txt
 ### PyCharm ###
 .idea/
 __pycache__/
+.venv/
+.mypy_cache/
+.pytest_cache/
 
 ### Исключить все файлы ###
 GIT_CONFIG*
@@ -33,10 +33,28 @@ PROJECTS_LYR*
 
 ### Исключить все файлы с расширение ###
 *.log
+*.egg-info
+*.ipynb_checkpoints
+
+### Исключить все файлы с расширение в корневом каталоге ###
 /*.bat
 
 ### Игнорировать все файлы в каталогах ###
+# Игнорировать все файлы в каталоге build/
 LOGS/
 LOG/
-out/
+OUT/
 EXE/
+DIST/
+BUILD/
+JUNIT/
+# DOC/
+WORK/
+
+###  Secrets ### 
+env_file
+*.env
+*.key
+*.cer
+*.crt
+*.pfx
