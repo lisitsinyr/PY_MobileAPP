@@ -28,13 +28,13 @@ import pandas
 #------------------------------------------
 # БИБЛИОТЕКИ LU
 #------------------------------------------
-import LULog
-import LUParserARG
-import LUFile
-import LUProc
-import LUos
-import LUDateTime
-import LUStrUtils
+import lyrpy.LULog as LULog
+import lyrpy.LUParserARG as LUParserARG
+import lyrpy.LUFile as LUFile
+import lyrpy.LUProc as LUProc
+import lyrpy.LUos as LUos
+import lyrpy.LUDateTime as LUDateTime
+import lyrpy.LUStrUtils as LUStrUtils
 
 #------------------------------------------
 # const
