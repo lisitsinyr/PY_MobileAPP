@@ -101,7 +101,7 @@ def RunProcessFile (aFileName: str, aPathWork: str):
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI, 'console', 'LOG_INIT',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
     LArgParser = LUParserARG.TArgParser (description = 'Параметры', prefix_chars = '-/')
@@ -110,13 +110,14 @@ def main ():
     LArgPathWork = LArgParser.ArgParser.add_argument ('PathWork', type = str, default = '', help = 'PathWork')
     LArgPathWork.required = False
     Largs = LArgParser.ArgParser.parse_args ()
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, Largs.__dict__)
+
     LFileName = Largs.FileName
     s = f'FileName = {LFileName}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT,s)
+
     LPathWork = Largs.PathWork
     s = f'PathWork = {LPathWork}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT,s)
     if LPathWork == '':
         LPathWork = LUos.GetCurrentDir()
     #endif
@@ -125,12 +126,13 @@ def main ():
         RunProcessFile (LFileName, LPathWork)
         LResult = 0
     else:
-        LULog.LoggerAPPS_AddLevel (LULog.TEXT, 'No such file or directory')
+        s = 'No such file or directory'
+        LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
         LResult = 1
     #endif
 
     s = 'ExitProgram...'
-    LULog.LoggerAPPS_AddInfo (s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
     sys.exit(LResult)
 #endfunction
 
